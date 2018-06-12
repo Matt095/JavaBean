@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02-Dec-2016, 10:39:31
+    Author     : cmpmchad
+*/
+
+.lessonTable{
+    border-collapse:collapse;
+    border: 1px solid #000000;
+    background-color: paleturquoise;
+}
+
+.lessonTableHeader{
+    text-align: center;
+    background:none;
+    border-bottom: 1px solid #000000;
+    padding: 2px;
+}
+
+.lessonTableRow{
+    text-align: center;
+    border: 1px solid #000000;
+}
+
+.lessonTableColumn{
+    text-align: center;
+    border: 1px solid #000000;
+}

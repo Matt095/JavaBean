@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Training4U - Booking Page</title>
+    </h:head>
+    <h:body>
+        <h1>Booking Page</h1>
+        <h:form>
+            <h:panelGrid columns="1" border="1">
+                <h:outputText value="Booking Lesson Number:#{param['lessonNo']} "/>
+                <h:outputText value="Sport: #{param['sportName']} "/>
+                <h:outputText value="Instructor Name: #{param['instructorFirstname']} #{param['instructorSurname']}"/>
+                <h:outputText value="Instructor Phone: #{param['instructorPhone']}"/>
+                <h:outputText value="Instructor Email: #{param['instructorEmail']}"/>
+            </h:panelGrid>
+            
+            <!--User inputs their details here in order to book a lesson-->
+            <h:panelGrid columns="2" border="1">
+                <h:outputText value="Enter First Name:"/>
+                <h:inputText value="#{trainingBean.firstName}"/>
+                <h:outputText value="Enter Surname:"/>
+                <h:inputText value="#{trainingBean.surname}"/>
+                <h:outputText value="Enter Phone Number:"/>
+                <h:inputText value="#{trainingBean.phoneNumber}"/>
+            </h:panelGrid>
+            
+            <h:panelGrid columns="1" border="0">
+                <f:facet name="footer">
+                        <h:commandButton action="lessons" value="Book"/>
+                </f:facet>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

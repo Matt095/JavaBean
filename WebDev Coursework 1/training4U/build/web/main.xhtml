@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Training4U - Main</title>
+    </h:head>
+    <h:body>
+        <h1>Training4U</h1>
+        <p>Welcome to Training4U. We aim to provide sport lessons with great value!</p>
+        <h:form>
+            <p>Please Select a Lesson</p>
+            <!--User selects a sport from the list shown, the lessons page then shows the rows in the database specific to that sport.-->
+                <f:view>
+                        <h:column>
+                            <c:forEach var="sportName" items="#{trainingBean.sports}" varStatus="iter">
+                                <h:panelGrid columns="1" border="0">
+                                    <h:commandButton action="#{trainingBean.listSports(sportName)}" value="#{sportName.sportName}"/>
+                                </h:panelGrid>
+                            </c:forEach>
+                        </h:column>
+                </f:view>
+        </h:form>
+    </h:body>
+</html>

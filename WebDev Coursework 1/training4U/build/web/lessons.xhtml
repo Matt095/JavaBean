@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Training4U - Lesson List</title>
+        <h:outputStylesheet library="css" name="styles.css"  />
+    </h:head>
+    <h:body>
+        <h1>Lesson List</h1>
+        <h:form>
+            <f:view>
+                <!--The table on the lessons page shows information about the lessons available-->
+                <h:dataTable value="#{trainingBean.lessons}" var="item" styleClass="lessonTable" 
+                             headerClass="lessonTableHeader" rowClasses="lessonTableRow" 
+                             columnClasses="lessonTableColumn" border="1">
+                    <h:column>
+                    <f:facet name="header">
+                    Lesson Number
+                    </f:facet>
+                    #{item.lessonNo}
+                    </h:column>
+                    
+                    <h:column>
+                    <f:facet name="header">
+                    Sport Type
+                    </f:facet>
+                    #{item.sportNo.sportName}
+                    </h:column>
+                    
+                    <h:column>
+                    <f:facet name ="header">
+                    Sport Description    
+                    </f:facet>
+                    #{item.sportNo.sportDescription}
+                    </h:column>
+                    
+                    <h:column>
+                    <f:facet name="header">
+                    Instructor Name
+                    </f:facet>
+                    #{item.instructorNo.instructorFirstname} #{item.instructorNo.instructorSurname}
+                    </h:column>
+                    
+                    <h:column>
+                    <f:facet name="header">
+                    Instructor Phone
+                    </f:facet>
+                    #{item.instructorNo.instructorPhone}
+                    </h:column>
+                    
+                    <h:column>
+                    <f:facet name="header">
+                    Instructor Email    
+                    </f:facet>
+                    #{item.instructorNo.instructorEmail}
+                    </h:column>
+                    
+                    <h:column>
+                    <f:facet name="header">
+                    Date
+                    </f:facet>
+                    <h:outputText value="#{item.lessonDate}">
+                        <f:convertDateTime pattern="dd.MM.yy"/>
+                    </h:outputText>
+                    </h:column>
+                    
+                    <h:column>
+                    <f:facet name="header">
+                    Start Time
+                    </f:facet>
+                    <h:outputText value="#{item.startTime}">
+                        <f:convertDateTime pattern="HH.mm"/>
+                    </h:outputText>
+                    </h:column>
+                    
+                    <h:column>
+                    <f:facet name="header">
+                    End Time
+                    </f:facet>
+                    <h:outputText value="#{item.endTime}">
+                        <f:convertDateTime pattern="HH.mm"/>
+                    </h:outputText>
+                    </h:column>
+                    
+                    <h:column>
+                    <f:facet name="header">
+                    Price
+                    </f:facet>
+                    £#{item.price}
+                    </h:column>
+                    
+                    <h:column>
+                    <f:facet name="header">
+                    Book Lesson
+                    </f:facet>
+                    <!--Parameters carried over to the booking page showing the user details about the lesson they are booking-->
+                    <h:button outcome ="booking" value="Book">
+                        <f:param value="#{item.lessonNo}" name="lessonNo" />
+                        <f:param value="#{item.sportNo.sportName}" name="sportName"/>
+                        <f:param value="#{item.instructorNo.instructorFirstname}" name="instructorFirstname"/>
+                        <f:param value="#{item.instructorNo.instructorSurname}" name="instructorSurname"/>
+                        <f:param value="#{item.instructorNo.instructorPhone}" name="instructorPhone"/>
+                        <f:param value="#{item.instructorNo.instructorEmail}" name="instructorEmail"/>
+                    </h:button>
+                    </h:column>
+                </h:dataTable>
+            </f:view>
+        </h:form>
+    </h:body> 
+</html>
+
